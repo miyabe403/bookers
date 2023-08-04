@@ -1,0 +1,10 @@
+<div class="book-wrap">
+<% @books.each do |book| %>
+  <div class="book-box">
+    <div class="book-comment">
+      <span class="book-body"><%= book.body %></span>  <!-- %= book.body % はbookモデルのbodyカラムに入っているデータを呼び出している記述です。 -->
+      <span class="book-title"><%=link_to book.title, book_path(book.id) %></span>
+    </div>
+  </div>
+<% end %>  
+</div>
