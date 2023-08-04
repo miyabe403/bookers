@@ -19,21 +19,21 @@ class BooksController < ApplicationController
   end
   
   def destroy
-    book = book.find(params[:id])  # データ(レコード) を1件取得
+    book = Book.find(params[:id])  # データ(レコード) を1件取得
     book.destroy  # データ(レコード)を削除
     redirect_to '/books'  # 投稿一覧画面へリダイレクト
   end
     
   def index
-    @books = book.all  # allメソッドを使ってデータベース内のデータを全て取得する
+    @books = Book.all  # allメソッドを使ってデータベース内のデータを全て取得する
   end
 
   def show
-    @book = book.find(params[:id])  # URLが/books/1の場合、params[:id] と記述すると、id=1を取り出せます。
+    @book = Book.find(params[:id])  # URLが/books/1の場合、params[:id] と記述すると、id=1を取り出せます。
   end
 
   def edit
-    @book = book.find(params[:id])  # 投稿済みのデータを編集するので、保存されているデータを取得します。
+    @book = Book.find(params[:id])  # 投稿済みのデータを編集するので、保存されているデータを取得します。
   end
   
   def update
