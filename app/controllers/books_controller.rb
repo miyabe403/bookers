@@ -36,6 +36,12 @@ class BooksController < ApplicationController
     @book = book.find(params[:id])  # 投稿済みのデータを編集するので、保存されているデータを取得します。
   end
   
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
+  end
+  
   private
   # ストロングパラメータ  投稿機能
   def book_params
