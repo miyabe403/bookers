@@ -1,11 +1,22 @@
+<!-- errorsは、モデルにバリデーションをかけたときに、発生したエラーの内容を確認できるメソッドです。-->
+<!-- any? と組み合わせることで、エラーが発生しているかどうかを判定できます。-->
+<% if @book.errors.any? %> 
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul><!-- full_messagesと組み合わせることで、エラーの内容を出力できます。 -->
+    <% @book.errors.full_messages.each do |message| %> <!-- エラー文は配列で保存されているため、eachを使います。 -->
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %> 
+
 <h1>New book</h1>
 
 <!-- form_with部分 オプション追記(厳密な記述) -->
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
-  <!-- Listモデルのtitle用のフィールドを追加 -->
+  <!-- bookモデルのtitle用のフィールドを追加 -->
 　<h4>title</h4>
   <%= f.text_field :title %>
-  <!-- Listモデルのbody用のフィールドを追加 -->
+  <!-- bookモデルのbody用のフィールドを追加 -->
   <h4>body</h4>
   <%= f.text_area :body %>
   

@@ -12,7 +12,6 @@
   <!--% end %>
 
 <!-- バリデーションを設定後 以下を追加  -->
-<%= image_tag @book.image, size: "300x300" %>
 
 <%= link_to "編集", edit_book_path(@book.id) %>  <!-- 編集画面へ遷移するリンクを設定 -->
 <!-- link_toのmethodオプションは、URLに対してHTTPメソッドを設定するためのオプションです。data-confirmを用いて削除確認ダイアログも表示 -->
