@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # get 'books/new'
   root to: 'homes#top'
-  post 'books' => 'books#create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/books', to: 'books#new', as: 'books'
+  resources :books  # resourcesメソッドは、ルーティングを一括して自動生成してくれる機能です。
 end
