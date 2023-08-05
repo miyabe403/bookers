@@ -1,14 +1,5 @@
-<div class="book-wrap">
-<% @books.each do |book| %>
-  <div class="book-box">
-    <div class="book-comment">
-      <span class="book-body"><%= book.body %></span>  <!-- %= book.body % はbookモデルのbodyカラムに入っているデータを呼び出している記述です。 -->
-      <span class="book-title"><%=link_to book.title, books_path(book.id) %></span>
-    </div>
-  </div>
-<% end %>  
-</div>
-<% @books.each do |book| %>
+
+<h1>Books</h1>
 <table>
   <thead>
     <tr>
@@ -17,12 +8,13 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  <% @books.each do |book| %>
   <tbody>
     <tr>
       <td class="book-body"><%= book.body %></td>
-      <td  class="book-title"><%=link_to book.title, books_path(book.id) %></td>
+      <td  class="book-title"><%=link_to book.title, book_path(book.id) %></td>
       <td><%= link_to "edit", edit_book_path(book.id) %></td>
-      <td><%= link_to "show", books_path %></td>-->
+      <td><%= link_to "show", book_path(book.id) %></td>
       <td><%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
     </tr>
   </tbody>
@@ -38,7 +30,7 @@
       <li><%= message %></li>
     <% end %>
   </ul>
-<% end %> 
+<% end %>
 
 <h1>New book</h1>
 

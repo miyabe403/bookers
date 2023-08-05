@@ -36,6 +36,7 @@ describe '投稿のテスト' do
             expect(page).to have_content book.body
             # Showリンク
             show_link = find_all('a')[j]
+            p book_path(book)
             expect(show_link.native.inner_text).to match(/show/i)
             expect(show_link[:href]).to eq book_path(book)
             # Editリンク
