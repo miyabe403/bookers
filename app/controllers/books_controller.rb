@@ -15,7 +15,7 @@ class BooksController < ApplicationController
       # 4. flash.nowでフラッシュメッセージを定義し、new.html.erbを描画する
       flash.now[:alert] = "errors"  #キーをalertに変更
       render :new  #  render :アクション名で、同じコントローラ内の別アクションのViewを表示できます。　
-    end
+    end 
   end
   
   def destroy
