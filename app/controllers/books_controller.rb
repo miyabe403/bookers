@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   def new
     # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @book = Book.new
-  end
+  end 
   
   def create
     # １.&2. データを受け取り新規登録するためのインスタンス作成
