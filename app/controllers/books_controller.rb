@@ -9,11 +9,11 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save  # 3. データが入力されていればデータをデータベースに保存するためのsaveメソッド実行
       # 4. フラッシュメッセージを定義し、詳細画面へリダイレクト
-      flash[:notice] = "投稿に成功しました。"
+      flash[:notice] = "successfully"
       redirect_to book_path(@book.id)  # 「転送したいアクションへのURL」を指定します。
     else  # データが入力されていなければ、saveメソッドでfalseが返されます。
       # 4. flash.nowでフラッシュメッセージを定義し、new.html.erbを描画する
-      flash.now[:alert] = "投稿に失敗しました。"  #キーをalertに変更
+      flash.now[:alert] = "errors"  #キーをalertに変更
       render :new  #  render :アクション名で、同じコントローラ内の別アクションのViewを表示できます。　
     end
   end
