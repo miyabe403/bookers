@@ -12,4 +12,7 @@
   
   <%= f.submit 'Update Book' %>
   
-<% end %>  
+<% end %>
+
+<%= link_to "show", book_path(@book.id) %>  <!-- 詳細画面へ遷移するリンクを設定 -->
+<%= link_to "back", books_path %>  <!-- 一覧画面へ遷移するリンクを設定 -->

@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all  # allメソッドを使ってデータベース内のデータを全て取得する
     @book = Book.new
-    # @book = Book.index
+    # @book = Book.index 
   end
 
   def show
@@ -40,8 +40,20 @@ class BooksController < ApplicationController
   
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    # book.update(book_params)
+    # redirect_to book_path(book.id)
+    
+    if book.update(book_params)  # 3. データが入力されていればデータをデータベースに保存するためのupdateメソッド実行
+      # 4. フラッシュメッセージを定義し、詳細画面へリダイレクト
+      flash[:notice] = "successfully"
+      redirect_to book_path(book.id)  # 「転送したいアクションへのURL」を指定します。
+    else  # データが入力されていなければ、saveメソッドでfalseが返されます。
+      # 4. flash.nowでフラッシュメッセージを定義し、new.html.erbを描画する
+      flash.now[:alert] = "errors"  #キーをalertに変更
+      @books = Book.all
+      @book = Book.new
+      render :index  #  render :アクション名で、同じコントローラ内の別アクションのViewを表示できます。　
+    end
   end
   
   private
