@@ -3,6 +3,6 @@ class HomesController < ApplicationController
   end
   
   def index
-    @books = Book.all  # allメソッドを使ってデータベース内のデータを全て取得する
+    @book = Book.all  # allメソッドを使ってデータベース内のデータを全て取得する
   end
 end

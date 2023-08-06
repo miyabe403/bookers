@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all  # allメソッドを使ってデータベース内のデータを全て取得する
     @book = Book.new
-    # @book = Book.index
+    render :index
   end
 
   def show
