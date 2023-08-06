@@ -17,7 +17,7 @@ class BooksController < ApplicationController
       flash.now[:alert] = "errors"  #キーをalertに変更
       render :index  #  render :アクション名で、同じコントローラ内の別アクションのViewを表示できます。　
     end 
-  end
+  end 
   
   def destroy
     book = Book.find(params[:id])  # データ(レコード) を1件取得
